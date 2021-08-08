@@ -178,11 +178,7 @@ def Main (argv):
 	os.chdir (currentDir)
 
 	languageCode = args.languageCode
-	#devKitPath = os.path.abspath (args.devKitPath)
 	devKitPath = os.path.join(args.devKitPath)
-	#devKitPath = "C:\\Program Files\\GRAPHISOFT\\API Development Kit 24.3009"
-				  #C:Program Files/GRAPHISOFT/API Development Kit 24.3009
-	#devKitPath = "C:/Program Files/GRAPHISOFT/API Development Kit 24.3009"
 	sourcesPath = os.path.abspath (args.sourcesPath)
 	resourcesPath = os.path.abspath (args.resourcesPath)
 	resourceObjectsPath = os.path.abspath (args.resourceObjectsPath)
@@ -192,7 +188,6 @@ def Main (argv):
 	system = platform.system ()
 	if system == 'Windows':
 		resourceCompiler = WinResourceCompiler (devKitPath, languageCode, sourcesPath, resourcesPath, resourceObjectsPath)
-		print("\n\n\n", devKitPath, "\n\n\n\n")
 	elif system == 'Darwin':
 		resourceCompiler = MacResourceCompiler (devKitPath, languageCode, sourcesPath, resourcesPath, resourceObjectsPath)
 
