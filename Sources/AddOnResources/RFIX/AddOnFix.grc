@@ -1,7 +1,9 @@
 'MDID' 32500 "Add-On Identifier" {
 	825453379 /* Replace with your developer id. */
-	3274196673 /* Replace with your local id. */
+	1741702524 /* polyGIS local id. */
 }
+
+
 
 'GICN' 10001 "AddOnIcon" {
 	"AddOnIcon"

@@ -5,19 +5,17 @@
 /* [  2] */		"Example AddOn Description..."
 }
 
-'STR#' 32501 "Errors" {
-/* [  1] */ "Error 1"
-/* [  2] */ "Error 2"
-}
 
 'STR#' ID_ADDON_MENU "Strings for the Menu" {
 /* [  1] */		"Example AddOn Command... ^E3 ^ES ^EE ^EI ^ED ^ET ^10001"
 }
 
-'GDLG' ID_ADDON_DLG Modal | grow   40   40  345  128  "Example Dialog" {
+'GDLG' ID_ADDON_DLG Modal | grow   40   40  345  345  "Main Dialog" {
 /* [  1] */ Button				  245   95   90   23	LargePlain  "OK"
 /* [  2] */ Button				  145   95   90   23	LargePlain  "Cancel"
 /* [  3] */ Separator			   10   83  325    2
+/* [  4] */ UserItem			    10  10  300  300	ClientEdge
+
 }
 
 'DLGH' ID_ADDON_DLG DLG_Example {

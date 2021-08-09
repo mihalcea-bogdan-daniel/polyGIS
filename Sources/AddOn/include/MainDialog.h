@@ -17,7 +17,8 @@ namespace GIS {
 			MainDialogResourceId = ID_ADDON_DLG,
 			OKButtonId = 1,
 			CancelButtonId = 2,
-			SeparatorId = 3
+			SeparatorId = 3,
+			CanvasId = 4
 		};
 		MainDialog();
 		~MainDialog();
@@ -27,6 +28,7 @@ namespace GIS {
 		DG::Button okButton;
 		DG::Button cancelButton;
 		DG::Separator separator;
+		DG::UserItem canvas;
 	};
 
 

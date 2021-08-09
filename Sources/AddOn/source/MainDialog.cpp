@@ -12,10 +12,12 @@ namespace GIS {
 		DG::ModalDialog(ACAPI_GetOwnResModule(), MainDialogResourceId, ACAPI_GetOwnResModule()),
 		okButton(GetReference(), OKButtonId),
 		cancelButton(GetReference(), CancelButtonId),
-		separator(GetReference(), SeparatorId)
+		separator(GetReference(), SeparatorId),
+		canvas(GetReference(), CanvasId)
 	{
 		AttachToAllItems(*this);
 		Attach(*this);
+		canvas.SetBackground(Gfx::Color(255, 255, 0));
 	}
 	MainDialog::~MainDialog() {
 		Detach(*this);
