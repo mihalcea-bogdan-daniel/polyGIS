@@ -5,6 +5,7 @@
 #include "ResourceIds.hpp"
 #include "DGModule.hpp"
 
+
 namespace GIS {
 
 	class MainDialog : public DG::ModalDialog,

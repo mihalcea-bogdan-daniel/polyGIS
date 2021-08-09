@@ -6,6 +6,10 @@
 #include "ResourceIds.hpp"
 #include "DGModule.hpp"
 
+#include	"DGNativeContexts.hpp"
+#include	"Graphics2D.h"
+#include	"GXImage.hpp"
+#include	"DGUtility.hpp"
 
 namespace GIS {
 	MainDialog::MainDialog() :
@@ -18,6 +22,7 @@ namespace GIS {
 		AttachToAllItems(*this);
 		Attach(*this);
 		canvas.SetBackground(Gfx::Color(255, 255, 0));
+		
 	}
 	MainDialog::~MainDialog() {
 		Detach(*this);
@@ -38,4 +43,23 @@ namespace GIS {
 			PostCloseRequest(DG::ModalDialog::Cancel);
 		}
 	}
+
+	//Draw a picture to the user item
+	static void DrawMyPict(DGUserUpdateData	*upd,
+		GSHandle			picData)
+	{
+		if (upd == 0 || upd->drawContext == 0 || picData == 0)
+			return;
+
+		const float width = (float)(upd->right - upd->left);
+		const float height = (float)(upd->bottom - upd->top);
+
+		NewDisplay::UserItemUpdateNativeContext context(upd);
+		NewDisplay::NativeImage image = GX::Image(picData, FTM::UnknownType).ToNativeImage();
+
+		const float xScale = (float)width / (float)image.GetWidth();
+		const float yScale = (float)height / (float)image.GetHeight();
+
+		context.DrawImage(image, xScale, yScale, 0.0, 0.0, 0.0, false);
+	}	// DrawMyPict
 }
