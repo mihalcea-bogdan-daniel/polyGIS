@@ -7,7 +7,7 @@
 
 
 'STR#' ID_ADDON_MENU "Strings for the Menu" {
-/* [  1] */		"Example AddOn Command... ^E3 ^ES ^EE ^EI ^ED ^ET ^10001"
+/* [  1] */		"Test Command ^E3 ^ES ^EE ^EI ^ED ^ET ^10001"
 }
 
 'GDLG' ID_ADDON_DLG Modal | grow   40   40  345  345  "Main Dialog" {

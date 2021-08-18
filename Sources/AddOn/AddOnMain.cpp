@@ -17,12 +17,14 @@ static const Int32 AddOnCommandID = 1;
 
 static GSErrCode MenuCommandHandler(const API_MenuParams *menuParams)
 {
+	DBPrintf("item index: %u", menuParams->menuItemRef.itemIndex);
 	switch (menuParams->menuItemRef.menuResID) {
 	case AddOnMenuID:
 		switch (menuParams->menuItemRef.itemIndex) {
 		case AddOnCommandID:
 		{
-			GIS::HTTPHandler::ReadJSONResponse();
+			DBPrintf("========================Debug started============================");
+			//GIS::HTTPHandler::ReadJSONResponse();
 			GIS::MainDialog dialog;
 			dialog.Invoke();
 		}
