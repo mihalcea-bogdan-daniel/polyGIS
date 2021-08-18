@@ -25,7 +25,7 @@ namespace GIS {
 		
 		GS::UniString _resp;
 		HTTP::MessageHeader::StatusCode::Id requestStatus = GIS::HTTPHandler::polyGISRequest(HTTP::MessageHeader::Method::Post, "https://api.polygis.xyz", "", _resp);
-		DBPrintf("Requst Status: %s\n", requestStatus);
+		DBPrintf("Requst Status: %u\n", requestStatus);
 
 	}
 	MainDialog::~MainDialog() {
