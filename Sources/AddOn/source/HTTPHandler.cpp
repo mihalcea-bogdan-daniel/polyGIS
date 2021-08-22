@@ -17,7 +17,7 @@
 #include	"pointer.h"
 
 namespace GIS {
-	HTTP::MessageHeader::StatusCode::Id HTTPHandler::polyGISRequest(HTTP::MessageHeader::Method::Id method, const GS::UniString& URL, const GS::UniString & requestBody, GS::UniString& _response)
+	HTTP::MessageHeader::StatusCode::Id HTTPHandler::polyGISRequest(HTTP::MessageHeader::Method::Id method, const GS::UniString& URL, const GS::UniString& requestBody, GS::UniString& _response)
 	{
 		using namespace HTTP::Client;
 		using namespace HTTP::MessageHeader;
@@ -28,11 +28,15 @@ namespace GIS {
 
 		ClientConnection clientConnection(connectionUrl);
 		clientConnection.Connect();
+		DBPrintf(requestBody.ToCStr().Get());
+		DBPrintf("Method: %u\n",method);
+		Request request(Method::Get, connectionUrl);
 
-		Request request(method, connectionUrl);
-		RequestHeaderFieldCollection& headers = request.GetRequestHeaderFieldCollection();
-		headers.Add(HeaderFieldName::ContentType, "application/json");
-		headers.Add(HeaderFieldName::Authorization, "ae95682a76654922b1d5ffce33ffd3f5");
+		request.GetRequestHeaderFieldCollection().Add(HeaderFieldName::Authorization, "ae95682a76654922b1d5ffce33ffd3f5");
+		request.GetRequestHeaderFieldCollection().Add(HeaderFieldName::Host, "api.polygis.xyz");
+		request.GetRequestHeaderFieldCollection().Add("Content-Type", "application/json");
+		request.GetRequestHeaderFieldCollection().Add(HeaderFieldName::UserAgent,
+			"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36");
 
 		clientConnection.Send(request, requestBody.ToCStr(), requestBody.GetLength());
 
