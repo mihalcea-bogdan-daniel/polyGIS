@@ -4,7 +4,7 @@
 
 #include "ResourceIds.hpp"
 #include "DGModule.hpp"
-
+#include "include/dialog_items/JudetePopUp.h"
 
 namespace GIS {
 
@@ -39,7 +39,7 @@ namespace GIS {
 		DG::Button cancelButton;
 		DG::Separator separator;
 		DG::UserItem canvas;
-		DG::PopUp judetePopUp;
+		GIS::JudetePopUp judetePopUp;
 		DG::PopUp localitatiPopUp;
 		DG::IntEdit numarCadastralIntInput;
 		DG::Button searchButton;

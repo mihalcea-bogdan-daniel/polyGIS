@@ -134,7 +134,7 @@ file(GLOB AddOnIncludeFiles
 set ( IncludeFiles 
 	${AddOnIncludeFiles}
 )
-source_group (TREE "${CMAKE_CURRENT_SOURCE_DIR}" PREFIX "Include" FILES ${IncludeFiles})
+source_group (TREE "${CMAKE_CURRENT_SOURCE_DIR}/Sources/AddOn/include" PREFIX "Include" FILES ${IncludeFiles})
 
 file(GLOB AddOnSourceFiles
 	${AddOnSourcesFolder}/source/*.c
@@ -145,7 +145,8 @@ file(GLOB AddOnSourceFiles
 set ( SourceFiles 
 	${AddOnSourceFiles}
 )
-source_group (TREE "${CMAKE_CURRENT_SOURCE_DIR}" PREFIX "Source" FILES ${SourceFiles})
+source_group (TREE "${CMAKE_CURRENT_SOURCE_DIR}/Sources/AddOn/source" PREFIX "Source" FILES ${SourceFiles})
+MESSAGE(STATUS "${CMAKE_CURRENT_SOURCE_DIR}/Sources/AddOn")
 ##### My Includes #######
 
 

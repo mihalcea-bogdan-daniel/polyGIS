@@ -27,13 +27,13 @@ namespace GIS {
 		AttachToAllItems(*this);
 		Attach(*this);
 		canvas.SetBackground(Gfx::Color(255, 255, 0));
-		
-		GS::UniString _resp;
-		HTTP::MessageHeader::StatusCode::Id requestStatus = GIS::HTTPHandler::polyGISRequest(HTTP::MessageHeader::Method::Get, "https://api.polygis.xyz", "{}", _resp);
-		if (requestStatus != NULL) {
-			DBPrintf("Request Status: %u\n", requestStatus);
 
-		}
+		//GS::UniString _resp;
+		//HTTP::MessageHeader::StatusCode::Id requestStatus = GIS::HTTPHandler::polyGISRequest(HTTP::MessageHeader::Method::Get, "https://api.polygis.xyz", "{}", _resp);
+		//if (requestStatus != NULL) {
+		//	DBPrintf("Request Status: %u\n", requestStatus);
+
+		//}
 
 	}
 	MainDialog::~MainDialog() {
@@ -49,7 +49,7 @@ namespace GIS {
 	}
 	void MainDialog::ButtonClicked(const DG::ButtonClickEvent & ev) {
 		if (ev.GetSource() == &okButton) {
-			
+
 			PostCloseRequest(DG::ModalDialog::Accept);
 		}
 		else if (ev.GetSource() == &cancelButton) {
