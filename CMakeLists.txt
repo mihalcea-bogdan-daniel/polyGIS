@@ -128,20 +128,24 @@ source_group ("Main" FILES ${AddOnFiles})
 file(GLOB AddOnIncludeFiles
 	${AddOnSourcesFolder}/include/*.h
 	${AddOnSourcesFolder}/include/*.hpp
+	${AddOnSourcesFolder}/include/dialog_items/*.h
+	${AddOnSourcesFolder}/include/dialog_items/*.hpp
 )
 set ( IncludeFiles 
 	${AddOnIncludeFiles}
 )
-source_group ("Include" FILES ${IncludeFiles})
+source_group (TREE "${CMAKE_CURRENT_SOURCE_DIR}" PREFIX "Include" FILES ${IncludeFiles})
 
 file(GLOB AddOnSourceFiles
 	${AddOnSourcesFolder}/source/*.c
 	${AddOnSourcesFolder}/source/*.cpp
+	${AddOnSourcesFolder}/source/dialog_items/*.c
+	${AddOnSourcesFolder}/source/dialog_items/*.cpp
 )
 set ( SourceFiles 
 	${AddOnSourceFiles}
 )
-source_group ("Source" FILES ${SourceFiles})
+source_group (TREE "${CMAKE_CURRENT_SOURCE_DIR}" PREFIX "Source" FILES ${SourceFiles})
 ##### My Includes #######
 
 
@@ -188,6 +192,8 @@ else ()
 endif ()
 
 SetCompilerOptions (AddOn)
+set_source_files_properties (${AddOnSourceFiles} PROPERTIES LANGUAGE CXX)
+
 file (GLOB ModuleFolders ${AC_API_DEVKIT_DIR}/Support/Modules/*)
 target_include_directories (AddOn PUBLIC ${ModuleFolders})
 if (WIN32)

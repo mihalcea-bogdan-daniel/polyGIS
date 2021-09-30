@@ -17,7 +17,12 @@ namespace GIS {
 		okButton(GetReference(), OKButtonId),
 		cancelButton(GetReference(), CancelButtonId),
 		separator(GetReference(), SeparatorId),
-		canvas(GetReference(), CanvasId)
+		canvas(GetReference(), CanvasId),
+		judetePopUp(GetReference(), JudeteListBoxId),
+		localitatiPopUp(GetReference(), LocalitatiListBoxId),
+		numarCadastralIntInput(GetReference(), NumarCadastralIntInputId),
+		searchButton(GetReference(), SearchButtontId),
+		donationButton(GetReference(), DonationButtontId)
 	{
 		AttachToAllItems(*this);
 		Attach(*this);
@@ -27,6 +32,7 @@ namespace GIS {
 		HTTP::MessageHeader::StatusCode::Id requestStatus = GIS::HTTPHandler::polyGISRequest(HTTP::MessageHeader::Method::Get, "https://api.polygis.xyz", "{}", _resp);
 		if (requestStatus != NULL) {
 			DBPrintf("Request Status: %u\n", requestStatus);
+
 		}
 
 	}

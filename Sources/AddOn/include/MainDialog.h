@@ -11,7 +11,10 @@ namespace GIS {
 	class MainDialog : public DG::ModalDialog,
 		public DG::PanelObserver,
 		public DG::ButtonItemObserver,
-		public DG::CompoundItemObserver
+		public DG::CompoundItemObserver,
+		public DG::PopUpObserver,
+		public DG::IntEditObserver,
+		public DG::UserItemObserver
 	{
 	public:
 		enum MainDialogResourceIds {
@@ -19,7 +22,13 @@ namespace GIS {
 			OKButtonId = 1,
 			CancelButtonId = 2,
 			SeparatorId = 3,
-			CanvasId = 4
+			CanvasId = 4,
+			JudeteListBoxId = 5,
+			LocalitatiListBoxId = 6,
+			NumarCadastralIntInputId = 7,
+			SearchButtontId = 8,
+			DonationButtontId = 11,
+
 		};
 		MainDialog();
 		~MainDialog();
@@ -30,8 +39,10 @@ namespace GIS {
 		DG::Button cancelButton;
 		DG::Separator separator;
 		DG::UserItem canvas;
+		DG::PopUp judetePopUp;
+		DG::PopUp localitatiPopUp;
+		DG::IntEdit numarCadastralIntInput;
+		DG::Button searchButton;
+		DG::Button donationButton;
 	};
-
-
-
 }

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<symbol  id="Add" viewBox="-4 -4 8 8">
+	<path id="XMLID_35_" fill="#FFFFFF" stroke="#297FFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M3.5,0c0-1.9-1.6-3.5-3.5-3.5S-3.5-1.9-3.5,0S-1.9,3.5,0,3.5S3.5,1.9,3.5,0z"/>
+	<g id="XMLID_24_">
+		
+			<line id="XMLID_34_" fill="none" stroke="#297FFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="-2" y1="0" x2="2" y2="0"/>
+		
+			<line id="XMLID_33_" fill="none" stroke="#297FFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="0" y1="2" x2="0" y2="-2"/>
+	</g>
+</symbol>
+<symbol  id="Cross_5__xD7__5_px_1_" viewBox="-2.5 -2.5 5 5">
+	
+		<line id="XMLID_17_" fill="none" stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="-2" y1="0" x2="2" y2="0"/>
+	
+		<line id="XMLID_16_" fill="none" stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="0" y1="2" x2="0" y2="-2"/>
+	<path id="XMLID_15_" fill="#FFFFFF" d="M0-0.5L0-0.5c-0.3,0-0.5,0.2-0.5,0.5v0c0,0.3,0.2,0.5,0.5,0.5h0c0.3,0,0.5-0.2,0.5-0.5v0
+		C0.5-0.3,0.3-0.5,0-0.5z"/>
+</symbol>
+<g id="XMLID_145_">
+	<g id="XMLID_52_">
+		
+			<line id="XMLID_55_" fill="none" stroke="#92989B" stroke-linecap="round" stroke-linejoin="round" x1="-49" y1="24.5" x2="-49" y2="24.5"/>
+		
+			<line id="XMLID_54_" fill="none" stroke="#92989B" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0,2" x1="-51" y1="24.5" x2="-52" y2="24.5"/>
+		
+			<line id="XMLID_53_" fill="none" stroke="#92989B" stroke-linecap="round" stroke-linejoin="round" x1="-53" y1="24.5" x2="-53" y2="24.5"/>
+	</g>
+</g>
+<g id="XMLID_7_">
+	<g id="XMLID_47_">
+		
+			<line id="XMLID_51_" fill="none" stroke="#92989B" stroke-linecap="round" stroke-linejoin="round" x1="-47" y1="23" x2="-47" y2="23"/>
+		
+			<line id="XMLID_50_" fill="none" stroke="#92989B" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0,1.8856" x1="-48.3" y1="21.7" x2="-54.3" y2="15.7"/>
+		
+			<line id="XMLID_48_" fill="none" stroke="#92989B" stroke-linecap="round" stroke-linejoin="round" x1="-55" y1="15" x2="-55" y2="15"/>
+	</g>
+</g>
+<g id="XMLID_27_">
+	<g id="XMLID_107_">
+		
+			<line id="XMLID_110_" fill="none" stroke="#92989B" stroke-linecap="round" stroke-linejoin="round" x1="-56.5" y1="21" x2="-56.5" y2="21"/>
+		
+			<line id="XMLID_109_" fill="none" stroke="#92989B" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0,2" x1="-56.5" y1="19" x2="-56.5" y2="18"/>
+		
+			<line id="XMLID_108_" fill="none" stroke="#92989B" stroke-linecap="round" stroke-linejoin="round" x1="-56.5" y1="17" x2="-56.5" y2="17"/>
+	</g>
+</g>
+<g id="XMLID_1_">
+	<g id="XMLID_112_">
+		
+			<line id="XMLID_115_" fill="none" stroke="#263238" stroke-linecap="round" stroke-linejoin="round" x1="-62.1" y1="5.6" x2="-51.6" y2="-4.9"/>
+		<g id="XMLID_113_">
+			<polyline id="XMLID_114_" fill="none" stroke="#263238" stroke-linecap="round" stroke-linejoin="round" points="-56.2,-4.9 
+				-51.6,-4.9 -51.6,-0.4 			"/>
+		</g>
+	</g>
+</g>
+<use xlink:href="#Cross_5__xD7__5_px_1_"  width="5" height="5" id="XMLID_2_" x="-2.5" y="-2.5" transform="matrix(1 0 0 -1 -56.5 24.5)" overflow="visible"/>
+<use xlink:href="#Cross_5__xD7__5_px_1_"  width="5" height="5" id="XMLID_10_" x="-2.5" y="-2.5" transform="matrix(1 0 0 -1 -56.5 13.5)" overflow="visible"/>
+<g id="Cross_5__xD7__5_px">
+</g>
+<use xlink:href="#Cross_5__xD7__5_px_1_"  width="5" height="5" id="XMLID_12_" x="-2.5" y="-2.5" transform="matrix(1 0 0 -1 -45.5 24.5)" overflow="visible"/>
+<use xlink:href="#Add"  width="8" height="8" id="XMLID_6_" x="-4" y="-4" transform="matrix(1 0 0 -1 -47 15)" overflow="visible"/>
+<g id="Search">
+	
+		<line id="XMLID_93_" fill="none" stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="19" y1="19" x2="12.3" y2="12.3"/>
+	<path id="XMLID_96_" fill="none" stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M12.3,12.3c1.2-1.2,1.9-2.8,1.9-4.7c0-3.6-3-6.6-6.6-6.6S1,4,1,7.6c0,3.6,3,6.6,6.6,6.6C9.4,14.2,11.1,13.5,12.3,12.3"/>
+</g>
+<g id="Buy_me_a_coffe">
+	<path id="XMLID_388_" fill="#FFDD00" d="M48.1,9.3c-0.6,0.3-1.3,0.6-2.2,0.6c-0.4,0-0.8-0.1-1.1-0.2l0.6,6.8c0,0.3,0.1,0.5,0.3,0.7
+		c0.2,0.2,0.5,0.3,0.7,0.3c0,0,0.9,0,1.2,0c0.3,0,1.3,0,1.3,0c0.3,0,0.5-0.1,0.7-0.3c0.2-0.2,0.3-0.5,0.3-0.7L50.7,9
+		c-0.3-0.1-0.6-0.2-1-0.2C49.1,8.9,48.6,9.1,48.1,9.3z"/>
+	<path id="XMLID_391_" fill="#0D0C22" d="M53.6,5.8l-0.1-0.5c-0.1-0.4-0.3-0.9-0.7-1c-0.1-0.1-0.3-0.1-0.4-0.2
+		c-0.1-0.1-0.1-0.3-0.2-0.4c0-0.3-0.1-0.6-0.1-0.9c0-0.2-0.1-0.5-0.2-0.7c-0.1-0.3-0.4-0.5-0.7-0.6c-0.1-0.1-0.3-0.1-0.5-0.1
+		C50,1.1,49.2,1.1,48.5,1c-0.9-0.1-1.8,0-2.7,0c-0.7,0.1-1.4,0.1-2,0.4c-0.2,0.1-0.5,0.2-0.6,0.4c-0.2,0.2-0.3,0.6-0.1,0.9
+		c0.1,0.2,0.3,0.3,0.5,0.4c0.3,0.1,0.5,0.2,0.8,0.3c0.8,0.2,1.6,0.2,2.4,0.3c0.9,0,1.8,0,2.6-0.1c0.2,0,0.4-0.1,0.6-0.1
+		c0.3,0,0.4-0.4,0.3-0.6c-0.1-0.3-0.3-0.4-0.6-0.4c0,0-0.1,0-0.1,0l0,0c-0.1,0-0.2,0-0.3,0c-0.2,0-0.4,0-0.6,0.1c-0.4,0-0.9,0-1.3,0
+		c-0.4,0-0.8,0-1.3,0c-0.2,0-0.4,0-0.6,0c-0.1,0-0.2,0-0.3,0l-0.1,0l0,0l-0.1,0c-0.2,0-0.4-0.1-0.5-0.1c0,0,0,0,0,0c0,0,0,0,0-0.1
+		c0,0,0,0,0-0.1c0,0,0,0,0,0h0c0.2,0,0.3-0.1,0.5-0.1c0.1,0,0.1,0,0.2,0h0c0.1,0,0.2,0,0.3,0C46.4,2,47.2,2,48,2
+		c0.4,0,0.8,0,1.2,0.1c0.1,0,0.2,0,0.3,0c0,0,0.1,0,0.1,0l0.1,0c0.2,0,0.4,0.1,0.6,0.1c0.3,0.1,0.6,0.1,0.8,0.4
+		c0,0.1,0.1,0.2,0.1,0.3l0,0.1c0,0,0,0,0,0c0.1,0.3,0.1,0.6,0.2,1c0,0,0,0,0,0.1c0,0,0,0,0,0.1c0,0,0,0-0.1,0c0,0,0,0-0.1,0h0l0,0
+		l0,0c-0.1,0-0.3,0-0.4,0c-0.3,0-0.5,0.1-0.8,0.1c-0.5,0-1,0.1-1.5,0.1c-0.3,0-0.5,0-0.8,0c-1,0-2.1-0.1-3.1-0.2c-0.1,0-0.2,0-0.3,0
+		c0.1,0-0.1,0-0.1,0c-0.1,0-0.1,0-0.2,0c-0.2,0-0.5-0.1-0.7-0.1c-0.3,0-0.6,0-0.8,0.1c-0.2,0.1-0.4,0.3-0.5,0.5
+		c-0.1,0.2-0.1,0.5-0.2,0.8c0,0.3-0.1,0.5-0.1,0.8c0.1,0.6,0.4,1,1,1.1c0.5,0.1,1,0.2,1.6,0.2c2,0.3,4.1,0.3,6.2,0.1
+		c0.2,0,0.3,0,0.5-0.1c0.1,0,0.1,0,0.2,0s0.1,0,0.1,0.1c0,0,0.1,0.1,0.1,0.1c0,0.1,0,0.1,0,0.2l-0.1,0.5c-0.1,1.1-0.2,2.1-0.3,3.2
+		c-0.1,1.1-0.2,2.2-0.3,3.3c0,0.3-0.1,0.6-0.1,0.9c0,0.3,0,0.6-0.1,0.9c-0.1,0.5-0.4,0.8-0.9,0.9c-0.4,0.1-0.8,0.2-1.3,0.2
+		c-0.5,0-0.9,0-1.4,0c-0.5,0-1.1,0-1.5-0.4c-0.3-0.3-0.4-0.9-0.4-1.3c-0.1-0.6-0.1-1.2-0.2-1.8L44.4,11l-0.2-2.2c0,0,0-0.1,0-0.1
+		c0-0.3-0.2-0.5-0.5-0.5c-0.2,0-0.5,0.2-0.5,0.5l0.2,1.6l0.3,3.4c0.1,1,0.2,1.9,0.3,2.9c0,0.2,0,0.4,0.1,0.6c0.1,1,0.8,1.6,1.8,1.7
+		c0.5,0.1,1.1,0.1,1.6,0.1c0.7,0,1.4,0,2.1-0.1c1-0.2,1.8-0.9,1.9-2c0-0.3,0.1-0.6,0.1-0.9c0.1-1,0.2-2.1,0.3-3.1l0.3-3.4l0.2-1.6
+		c0-0.1,0-0.2,0.1-0.2c0.1-0.1,0.1-0.1,0.2-0.1c0.3-0.1,0.6-0.2,0.8-0.4C53.7,6.8,53.7,6.3,53.6,5.8z M42.7,6.1
+		C42.7,6.1,42.6,6.2,42.7,6.1C42.6,6.2,42.6,6.2,42.7,6.1z M42.7,6.4C42.7,6.4,42.7,6.4,42.7,6.4C42.7,6.4,42.7,6.4,42.7,6.4
+		L42.7,6.4z M42.7,6.4C42.7,6.4,42.7,6.4,42.7,6.4L42.7,6.4z M42.8,6.5L42.8,6.5C42.8,6.5,42.8,6.5,42.8,6.5
+		C42.8,6.5,42.8,6.5,42.8,6.5L42.8,6.5z M52.5,6.4c-0.1,0.1-0.3,0.2-0.4,0.2c-1.7,0.3-3.5,0.4-5.3,0.3c-1.3,0-2.5-0.2-3.8-0.4
+		c-0.1,0-0.3,0-0.3-0.1c-0.2-0.2-0.1-0.5,0-0.7c0-0.2,0.1-0.5,0.3-0.5c0.4,0,0.8,0.1,1.1,0.2c0.4,0.1,0.8,0.1,1.3,0.2
+		c1.8,0.2,3.6,0.1,5.4-0.1c0.3,0,0.7-0.1,1-0.2c0.3-0.1,0.6-0.2,0.8,0.2c0.1,0.2,0.1,0.5,0.1,0.7C52.7,6.2,52.6,6.3,52.5,6.4
+		L52.5,6.4z"/>
+</g>
+</svg>

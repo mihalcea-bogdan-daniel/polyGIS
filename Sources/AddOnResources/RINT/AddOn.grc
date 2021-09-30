@@ -7,16 +7,38 @@
 
 
 'STR#' ID_ADDON_MENU "Strings for the Menu" {
-/* [  1] */		"Test Command ^E3 ^ES ^EE ^EI ^ED ^ET ^10001"
+/* [  1] */		"polyGIS ^E3 ^ES ^EE ^EI ^ED ^ET ^10001"
 }
 
-'GDLG' ID_ADDON_DLG Modal | grow   40   40  345  345  "Main Dialog" {
-/* [  1] */ Button				  245   95   90   23	LargePlain  "OK"
-/* [  2] */ Button				  145   95   90   23	LargePlain  "Cancel"
-/* [  3] */ Separator			   10   83  325    2
-/* [  4] */ UserItem			    10  10  300  300	ClientEdge
+'GDLG' ID_ADDON_DLG Modal | grow   40    40  515  550  "Main Dialog" {
+/* [  1] */ Button				  415   520   90   23	LargePlain  "OK"
+/* [  2] */ Button				  315   520   90   23	LargePlain  "Cancel"
+/* [  3] */ Separator			   10   515  500    2
+/*------------ CANVAS ---------------------------------------------------------------------*/
+/* [  4] */ UserItem			   10    40  500  460	ClientEdge
 
+/*------------ JUDETE ---------------------------------------------------------------------*/
+/* [  5] */ PopupControl		   10	 10	 160   23	250			0
+
+/*------------ LOCALITATI -----------------------------------------------------------------*/
+/* [  6] */ PopupControl		  175	 10	 200   23	250			0
+
+/*------------ NUMAR CADASTRAL ------------------------------------------------------------*/
+/* [  7] */ IntEdit				  380    10  100   23	LargePlain  "0"		 "99999999"
+
+/*------------ SEARCH NUMAR CADASTRAL -----------------------------------------------------*/
+/* [  8] */ IconButton			  485    10   23   23    10002		   /* Search button*/
+
+/*------------ About ----------------------------------------------------------------------*/
+/* [  9] */ LeftText			  10    500  150   14    ExtraSmall	 vCenter  "Creat de Arh. Mihalcea Bogdan Daniel" 
+
+/*------------ Contact indromation --------------------------------------------------------*/
+/* [ 10] */ LeftText			  170   500  150   14    ExtraSmall	 vCenter  "contact@polygis.xyz" 
+
+/*------------ Donation button ------------------------------------------------------------*/
+/* [ 11] */ IconButton			  10    520   23   23    10003		 /* Donation button*/
 }
+
 
 'DLGH' ID_ADDON_DLG DLG_Example {
 1	""		Button_0
