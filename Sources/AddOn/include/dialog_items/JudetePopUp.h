@@ -3,7 +3,7 @@
 #include "ACAPinc.h"
 
 #include "DGModule.hpp"
-#include "source.h"
+#include "Source.h"
 namespace GIS {
 	class JudetePopUp : public DG::PopUp, public DG::PopUpObserver {
 	public:

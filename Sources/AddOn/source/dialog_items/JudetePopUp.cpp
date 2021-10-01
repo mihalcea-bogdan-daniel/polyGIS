@@ -1,5 +1,5 @@
 #include "include/dialog_items/JudetePopUp.h"
-#include "source.h"
+#include "Source.h"
 #include "HTTPHandler.h"
 #include "MainDialog.h"
 GIS::JudetePopUp::JudetePopUp(const DG::Panel & _panel, short item) :PopUp(_panel, item), PopUpObserver()
@@ -25,7 +25,7 @@ void GIS::JudetePopUp::PopUpChanged(const DG::PopUpChangeEvent& ev)
 	
 	DGUserData userData = DGPopUpGetItemUserData(DG_TOP_MODAL, source->GetId(), selectedItem);
 	int err = GIS::HTTPHandler::RequestLocalitati(userData, listaLocalitati);
-	if (err = 200) {
+    if (err == 200) {
 		DG::PopUp* toFillpopup = dynamic_cast<DG::PopUp*>(parentPanel->GetItem(MainDialog::LocalitatiListBoxId));
 		this->Fill(*toFillpopup,listaLocalitati);
 		for (GIS::Localitate elem : listaLocalitati) {
