@@ -23,9 +23,11 @@ function (SetCompilerOptions target)
 endfunction ()
 
 set_property (GLOBAL PROPERTY USE_FOLDERS ON)
-set(CMAKE_C_COMPILER "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc")
+if(APPLE)
+	set(CMAKE_C_COMPILER "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc")
 
-set(CMAKE_CXX_COMPILER "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++")
+	set(CMAKE_CXX_COMPILER "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++")
+endif()
 set (CMAKE_SUPPRESS_REGENERATION 1)
 set (CMAKE_CONFIGURATION_TYPES Debug;Release;RelWithDebInfo)
 set (AC_API_DEVKIT_DIR $ENV{AC_API_DEVKIT_DIR} CACHE PATH "API DevKit directory.")
