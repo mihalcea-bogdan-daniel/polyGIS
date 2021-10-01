@@ -3,15 +3,15 @@
 #include "ACAPinc.h"
 
 #include "DGModule.hpp"
-
+#include "source.h"
 namespace GIS {
 	class JudetePopUp : public DG::PopUp, public DG::PopUpObserver {
 	public:
 		JudetePopUp(const DG::Panel &_panel, short item);
 		~JudetePopUp();
 		virtual void PopUpChanged(const DG::PopUpChangeEvent& ev) override;
-		void FillOtherPopUpItem(const DG::PopUp&);
 		void Fill(const GS::HashTable<GS::UniString, GS::UShort>& hashtable);
+		void Fill(DG::PopUp &PopUp, const GS::Array<GIS::Localitate> &itemsArray);
 		GS::UniString name;
 	};
 }

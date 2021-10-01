@@ -27,6 +27,8 @@ namespace GIS {
 			LocalitatiListBoxId = 6,
 			NumarCadastralIntInputId = 7,
 			SearchButtontId = 8,
+			AboutTextId = 9,
+			ContactTextId = 10,
 			DonationButtontId = 11,
 
 		};
@@ -44,5 +46,7 @@ namespace GIS {
 		DG::IntEdit numarCadastralIntInput;
 		DG::Button searchButton;
 		DG::Button donationButton;
+		DG::LeftText contactText;
+		DG::LeftText aboutText;
 	};
 }

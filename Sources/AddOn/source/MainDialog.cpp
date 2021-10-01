@@ -22,11 +22,14 @@ namespace GIS {
 		localitatiPopUp(GetReference(), LocalitatiListBoxId),
 		numarCadastralIntInput(GetReference(), NumarCadastralIntInputId),
 		searchButton(GetReference(), SearchButtontId),
+		contactText(GetReference(), ContactTextId),
+		aboutText(GetReference(), AboutTextId),
 		donationButton(GetReference(), DonationButtontId)
 	{
 		AttachToAllItems(*this);
 		Attach(*this);
-		canvas.SetBackground(Gfx::Color(255, 255, 0));
+		canvas.SetBackground(Gfx::Color(180, 255, 0));
+		
 
 		//GS::UniString _resp;
 		//HTTP::MessageHeader::StatusCode::Id requestStatus = GIS::HTTPHandler::polyGISRequest(HTTP::MessageHeader::Method::Get, "https://api.polygis.xyz", "{}", _resp);
@@ -45,6 +48,10 @@ namespace GIS {
 		okButton.Move(ev.GetHorizontalChange(), ev.GetVerticalChange());
 		cancelButton.Move(ev.GetHorizontalChange(), ev.GetVerticalChange());
 		separator.MoveAndResize(0, ev.GetVerticalChange(), ev.GetHorizontalChange(), 0);
+		canvas.MoveAndResize(0, 0, ev.GetHorizontalChange(), ev.GetVerticalChange());
+		contactText.Move(0, ev.GetVerticalChange());
+		aboutText.Move(0, ev.GetVerticalChange());
+		donationButton.Move(0, ev.GetVerticalChange());
 		EndMoveResizeItems();
 	}
 	void MainDialog::ButtonClicked(const DG::ButtonClickEvent & ev) {

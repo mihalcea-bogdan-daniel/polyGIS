@@ -10,7 +10,7 @@
 /* [  1] */		"polyGIS ^E3 ^ES ^EE ^EI ^ED ^ET ^10001"
 }
 
-'GDLG' ID_ADDON_DLG Modal | grow   40    40  515  550  "Main Dialog" {
+'GDLG' ID_ADDON_DLG Modal | grow   40    40  515  550  "polyGIS - Cauta numar cadastral" {
 /* [  1] */ Button				  415   520   90   23	LargePlain  "OK"
 /* [  2] */ Button				  315   520   90   23	LargePlain  "Cancel"
 /* [  3] */ Separator			   10   515  500    2
@@ -32,7 +32,7 @@
 /*------------ About ----------------------------------------------------------------------*/
 /* [  9] */ LeftText			  10    500  150   14    ExtraSmall	 vCenter  "Creat de Arh. Mihalcea Bogdan Daniel" 
 
-/*------------ Contact indromation --------------------------------------------------------*/
+/*------------ Contact information --------------------------------------------------------*/
 /* [ 10] */ LeftText			  170   500  150   14    ExtraSmall	 vCenter  "contact@polygis.xyz" 
 
 /*------------ Donation button ------------------------------------------------------------*/
