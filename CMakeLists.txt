@@ -22,7 +22,7 @@ function (SetCompilerOptions target)
 	endif ()
 endfunction ()
 
-# FIRST OPTIONAL ARGUMENT IS DEVELOPER ID AND SECOND OPTIONAL ARGUMENT IS LOCAL_ID
+# Generates the Private.hpp file
 function (GeneratePrivateHeader)
 set (PRIVATE_HPP_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/Sources/AddOn/Private.hpp")
 	if(EXISTS "${PRIVATE_HPP_LOCATION}")
@@ -47,19 +47,19 @@ set (PRIVATE_HPP_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/Sources/AddOn/Private.hpp
 	endif()
 	
 endfunction()
+
 set_property (GLOBAL PROPERTY USE_FOLDERS ON)
 
 # Fixing the default compiler locations for apple
 if(APPLE)
 	set(CMAKE_C_COMPILER "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc")
-
 	set(CMAKE_CXX_COMPILER "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++")
 endif()
 
 set (CMAKE_SUPPRESS_REGENERATION 1)
 set (CMAKE_CONFIGURATION_TYPES Debug;Release;RelWithDebInfo)
 set (AC_API_DEVKIT_DIR $ENV{AC_API_DEVKIT_DIR} CACHE PATH "API DevKit directory.")
-set (AC_ADDON_NAME "polyGIS" CACHE STRING "Add-On name.")
+set (AC_ADDON_NAME "ExampleAddOn" CACHE STRING "Add-On name.")
 set (AC_ADDON_LANGUAGE "INT" CACHE STRING "Add-On language code.")
 
 set (ACAPINC_FILE_LOCATION ${AC_API_DEVKIT_DIR}/Support/Inc/ACAPinc.h)

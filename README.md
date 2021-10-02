@@ -24,7 +24,7 @@ Run these commands from the command line.
 ```
 mkdir Build
 cd Build
-cmake -G "Visual Studio 15 2017" -A "x64" -DAC_API_DEVKIT_DIR="C:\Program Files\GRAPHISOFT\API Development Kit 24.3009" AC_ADDON_NAME = "polyGIS" ..
+cmake -G "Visual Studio 15 2017" -A "x64" -DAC_API_DEVKIT_DIR="C:\Program Files\GRAPHISOFT\API Development Kit 24.3009" AC_ADDON_NAME="polyGIS" ..
 cd ..
 ```
 
