@@ -24,8 +24,10 @@ namespace GIS {
 		searchButton(GetReference(), SearchButtontId),
 		contactText(GetReference(), ContactTextId),
 		aboutText(GetReference(), AboutTextId),
-		donationButton(GetReference(), DonationButtontId)
+		donationButton(GetReference(), DonationButtontId),
+		isAbsOriginCheckBox(GetReference(), IsAbsOriginCheckBoxId)
 	{
+		GIS::MainFunctions::Do_SetDefaultSettings();
 		AttachToAllItems(*this);
 		Attach(*this);
 		canvas.SetBackground(Gfx::Color(180, 255, 0));

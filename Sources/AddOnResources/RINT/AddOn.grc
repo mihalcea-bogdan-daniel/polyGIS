@@ -15,7 +15,7 @@
 /* [  2] */ Button				  315   520   90   23	LargePlain  "Cancel"
 /* [  3] */ Separator			   10   515  500    2
 /*------------ CANVAS ---------------------------------------------------------------------*/
-/* [  4] */ UserItem			   10    40  500  460	ClientEdge
+/* [  4] */ UserItem			   10    65  500  435	ClientEdge
 
 /*------------ JUDETE ---------------------------------------------------------------------*/
 /* [  5] */ PopupControl		   10	 10	 160   23	250			0
@@ -37,6 +37,10 @@
 
 /*------------ Donation button ------------------------------------------------------------*/
 /* [ 11] */ IconButton			  10    520   23   23    10003		 /* Donation button*/
+
+/*------------ Real coordinates check box--------------------------------------------------*/
+
+/* [ 12] */ CheckBox			  10	 38   150  23 	LargePlain			  "Origin 0?"
 }
 
 
@@ -44,4 +48,5 @@
 1	""		Button_0
 2	""		Button_1
 3	""		Separator_0
+12  "Daca este bifat terenul va fi poztionat in pozitia 0, 0 a proiectului fara a tine cont de coordonatele reale Stereo 70"	CheckBox_1
 }

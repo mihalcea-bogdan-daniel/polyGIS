@@ -5,6 +5,7 @@
 #include "ResourceIds.hpp"
 #include "DGModule.hpp"
 #include "include/dialog_items/JudetePopUp.h"
+#include "include/dialog_items/GIS_CheckBox.h"
 
 namespace GIS {
 
@@ -30,7 +31,7 @@ namespace GIS {
 			AboutTextId = 9,
 			ContactTextId = 10,
 			DonationButtontId = 11,
-
+			IsAbsOriginCheckBoxId = 12,
 		};
 		MainDialog();
 		~MainDialog();
@@ -48,5 +49,6 @@ namespace GIS {
 		DG::Button donationButton;
 		DG::LeftText contactText;
 		DG::LeftText aboutText;
+		GIS::GIS_CheckBox isAbsOriginCheckBox;
 	};
 }

@@ -2,10 +2,14 @@
 #include "Source.h"
 #include "HTTPHandler.h"
 #include "MainDialog.h"
-GIS::JudetePopUp::JudetePopUp(const DG::Panel & _panel, short item) :PopUp(_panel, item), PopUpObserver()
+GIS::JudetePopUp::JudetePopUp(const DG::Panel & _panel, short item) : 
+	/*Init inherited classes*/
+	PopUp(_panel, item), 
+	PopUpObserver()
 {
 	Attach(*this);
 	this->Fill(GIS::JUDETE_UAT);
+	this->SelectItem(2);
 	
 }
 

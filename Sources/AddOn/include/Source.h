@@ -1,6 +1,21 @@
 #pragma once
 #include "APIEnvir.h"
 #include "ACAPinc.h"
+#include "DG.h"
+
+#define CURR_ADDON_VERSION 0x001
+
+/*
+The main structure of the Add Ons preferences
+*/
+typedef struct {
+	Int32 version;
+	bool  absCoordinates;
+	short lastSelectedJudet;
+} AddOnPreferences;
+
+
+
 
 namespace GIS {
 	struct Localitate
@@ -61,5 +76,8 @@ namespace GIS {
 		{"VRANCEA",396}
 	};
 
-
+	class MainFunctions {
+		public:
+			static void Do_SetDefaultSettings();
+	};
 }

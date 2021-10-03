@@ -9,9 +9,10 @@ namespace GIS {
 	public:
 		JudetePopUp(const DG::Panel &_panel, short item);
 		~JudetePopUp();
-		virtual void PopUpChanged(const DG::PopUpChangeEvent& ev) override;
-		void Fill(const GS::HashTable<GS::UniString, GS::UShort>& hashtable);
-		void Fill(DG::PopUp &PopUp, const GS::Array<GIS::Localitate> &itemsArray);
+		virtual void	PopUpChanged(const DG::PopUpChangeEvent& ev) override;
+		void			Fill(const GS::HashTable<GS::UniString, GS::UShort>& hashtable);
+		void			Fill(DG::PopUp &PopUp, const GS::Array<GIS::Localitate> &itemsArray);
+
 		GS::UniString name;
 	};
 }
