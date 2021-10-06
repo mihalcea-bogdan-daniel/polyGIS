@@ -1,4 +1,5 @@
 #include "dialog_items/GIS_CheckBox.h"
+#include "Source.h"
 namespace GIS {
 	GIS_CheckBox::GIS_CheckBox(const DG::Panel& _panel, short item) :
 		CheckBox(_panel, item),
@@ -17,7 +18,7 @@ namespace GIS {
 	//OnCheckItemChanged
 	void GIS_CheckBox::CheckItemChanged(const DG::CheckItemChangeEvent& ev)
 	{
-		GIS_CheckBox*		source = dynamic_cast<GIS_CheckBox*>(ev.GetSource());
+		GIS_CheckBox* source = dynamic_cast<GIS_CheckBox*>(ev.GetSource());
 		bool isChecked = source->IsChecked();
 		
 		//Change the preferences when clicked

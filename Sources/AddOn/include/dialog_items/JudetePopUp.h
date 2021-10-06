@@ -4,8 +4,9 @@
 
 #include "DGModule.hpp"
 #include "Source.h"
+#include "Preferences.h"
 namespace GIS {
-	class JudetePopUp : public DG::PopUp, public DG::PopUpObserver {
+	class JudetePopUp : public DG::PopUp, public DG::PopUpObserver, public Preferences {
 	public:
 		JudetePopUp(const DG::Panel &_panel, short item);
 		~JudetePopUp();

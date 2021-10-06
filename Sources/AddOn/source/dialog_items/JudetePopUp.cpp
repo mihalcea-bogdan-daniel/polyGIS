@@ -5,7 +5,8 @@
 GIS::JudetePopUp::JudetePopUp(const DG::Panel & _panel, short item) : 
 	/*Init inherited classes*/
 	PopUp(_panel, item), 
-	PopUpObserver()
+	PopUpObserver(),
+	Preferences()
 {
 	Attach(*this);
 	this->Fill(GIS::JUDETE_UAT);
