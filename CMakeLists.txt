@@ -138,6 +138,7 @@ else ()
 		COMMAND ${CMAKE_COMMAND} -E touch "${ResourceObjectsDir}/AddOnResources.stamp"
 	)
 endif ()
+GeneratePrivateHeader()
 
 
 
@@ -227,7 +228,6 @@ else ()
 endif ()
 
 SetCompilerOptions (AddOn)
-GeneratePrivateHeader()
 set_source_files_properties (${AddOnSourceFiles} PROPERTIES LANGUAGE CXX)
 
 file (GLOB ModuleFolders ${AC_API_DEVKIT_DIR}/Support/Modules/*)

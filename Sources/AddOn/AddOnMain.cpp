@@ -6,6 +6,9 @@
 #include "StringConversion.hpp"
 #include "HTTPHandler.h"
 #include "MainDialog.h"
+#include "BoundingBox.h"
+
+static const GIS::BBOX::BoundingBox bb;
 
 static const GSResID AddOnInfoID = ID_ADDON_INFO;
 static const Int32 AddOnNameID = 1;

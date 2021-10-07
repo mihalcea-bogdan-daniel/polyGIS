@@ -1,0 +1,110 @@
+#include "BoundingBox.h"
+namespace GIS {
+	namespace BBOX {
+
+		BoundingBox::BoundingBox()
+		{
+			this->SetCenter();
+		}
+
+		BoundingBox::BoundingBox(
+			const double &width,
+			const double &height)
+		{
+			this->box.xMin = 0.0;
+			this->box.xMax = width;
+			this->box.yMin = 0.0;
+			this->box.yMax = height;
+			this->SetCenter();
+		}
+
+		BoundingBox::BoundingBox(
+			const double& xMin,
+			const double& yMin,
+			const double& xMax,
+			const double& yMax)
+		{
+			this->box.xMin = xMin;
+			this->box.xMax = xMax;
+			this->box.yMin = yMin;
+			this->box.yMax = yMax;
+			this->SetCenter();
+		}
+
+		BoundingBox::BoundingBox(
+			const GS::Array<API_Coord>& coordinates)
+		{
+
+			this->coordinates = coordinates;
+			this->box.xMin = coordinates[0].x;
+			this->box.xMax = coordinates[0].x;
+			this->box.yMin = coordinates[0].y;
+			this->box.yMax = coordinates[0].y;
+
+
+			for (API_Coord currentCoordinate : coordinates) {
+				if (currentCoordinate.x < this->box.xMin) {
+					this->box.xMin = currentCoordinate.x;
+				}
+				if (currentCoordinate.y < this->box.yMin) {
+					this->box.yMin = currentCoordinate.y;
+				}
+				if (currentCoordinate.x > this->box.xMax) {
+					this->box.xMax = currentCoordinate.x;
+				}
+				if (currentCoordinate.y > this->box.yMax) {
+					this->box.yMax = currentCoordinate.y;
+				}
+			}
+
+		}
+
+		BoundingBox::~BoundingBox()
+		{
+		}
+		GS::Array<API_Coord> BoundingBox::GetNormalizedCoordinates()
+		{
+			GS::Array<API_Coord> normalCoordinates = {};
+			for (API_Coord currentCoord : this->coordinates) {
+
+				API_Coord normalCoord = {
+					(currentCoord.x - this->box.xMin) / (this->box.xMax - this->box.xMin),
+					(currentCoord.y - this->box.yMin) / (this->box.yMax - this->box.yMin)
+				};
+				normalCoordinates.Push(normalCoord);
+
+			}
+			return normalCoordinates;
+		}
+
+		//TODO Get normalized coordinates refering to a point,
+		//Using this I can scale the drawing accoringly with the canvas
+		GS::Array<API_Coord> BoundingBox::GetNormalizedCoordinates(const API_Coord& relativeToThisPoint)
+		{
+			GS::Array<API_Coord> normalCoordinates = {};
+			for (API_Coord currentCoord : this->coordinates) {
+
+				API_Coord normalCoord = {
+					(currentCoord.x - relativeToThisPoint.x) / (this->box.xMax - relativeToThisPoint.x),
+					(currentCoord.y - relativeToThisPoint.y) / (this->box.yMax - relativeToThisPoint.y)
+				};
+				normalCoordinates.Push(normalCoord);
+
+			}
+			return normalCoordinates;
+		}
+
+		void BoundingBox::SetCenter()
+		{
+			this->center = {
+				(this->box.xMax - this->box.yMin) / 2.0,
+				(this->box.yMax - this->box.yMin) / 2.0
+			};
+		}
+
+		void BoundingBox::SetCenter(const API_Coord& _center)
+		{
+			this->center = _center;
+		}
+	}
+}
