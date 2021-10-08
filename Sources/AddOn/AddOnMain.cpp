@@ -31,7 +31,8 @@ static GSErrCode MenuCommandHandler(const API_MenuParams *menuParams)
 				"========================Debug started============================\n"
 				"=================================================================\n"
 			);
-			//GIS::HTTPHandler::ReadJSONResponse();
+			//FAST Make the request from the forms, not this way.
+			GIS::HTTPHandler::RequestNumarCadastral(38, 13935, 0);
 			GIS::MainDialog dialog;
 			dialog.Invoke();
 		}

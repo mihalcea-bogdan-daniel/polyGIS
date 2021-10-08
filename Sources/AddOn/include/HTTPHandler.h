@@ -30,7 +30,7 @@ namespace GIS {
 			const GS::UInt64& UATID,
 			GS::Array<GIS::Localitate>& _listaLocalitati
 		);
-		static HTTP::MessageHeader::StatusCode::Id RequestNumarCadastral(
+		static GS::Array<API_Coord> RequestNumarCadastral(
 			const GS::UInt64& UATID,
 			const GS::UInt64& ADMINISTRATIVE_ID,
 			const int& NUMAR_CADASTRAL

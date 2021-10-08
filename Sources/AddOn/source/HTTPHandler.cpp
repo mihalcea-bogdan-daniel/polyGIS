@@ -1,5 +1,6 @@
 #include "APIEnvir.h"
 #include "ACAPinc.h"
+#include "DGModule.hpp"
 
 #include	"HTTP/Client/ClientConnection.hpp"
 #include	"HTTP/Client/Request.hpp"
@@ -11,6 +12,7 @@
 #include	"StringConversion.hpp"
 
 #include	"HTTPHandler.h"
+#include	"ErrorList.h"
 
 //RapidJSON
 #include	"document.h"
@@ -71,16 +73,25 @@ namespace GIS {
 		request.GetRequestHeaderFieldCollection().Add(HeaderFieldName::UserAgent,
 			"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36");
 
-		clientConnection.Send(request, requestBody.ToCStr(), requestBody.GetLength());
+		//FAST Create error handling for no connection or bad connection
+		try
+		{
+			clientConnection.Send(request, requestBody.ToCStr(), requestBody.GetLength());
 
-		Response response;
-		GS::IChannelX channel(clientConnection.BeginReceive(response), GS::GetNetworkByteOrderIProtocolX());
-		_response = GS::IBinaryChannelUtilities::ReadUniStringAsUTF8(channel, StringSerializationType::NotTerminated);
+			Response response;
+			GS::IChannelX channel(clientConnection.BeginReceive(response), GS::GetNetworkByteOrderIProtocolX());
+			_response = GS::IBinaryChannelUtilities::ReadUniStringAsUTF8(channel, StringSerializationType::NotTerminated);
 
-		statusCode = response.GetStatusCode();
-		clientConnection.FinishReceive();
-		clientConnection.Close(true);
-		return statusCode;
+			statusCode = response.GetStatusCode();
+			clientConnection.FinishReceive();
+			clientConnection.Close(true);
+			return statusCode;
+		}
+		catch (const GS::Exception exception)
+		{
+			throw exception.GetMessage();
+		}
+		
 	}
 
 	HTTP::MessageHeader::StatusCode::Id HTTPHandler::RequestLocalitati(const GS::UInt64& UATID, GS::Array<GIS::Localitate>& _listaLocalitati)
@@ -96,7 +107,7 @@ namespace GIS {
 			"",
 			responseBody
 			);
-		if (statusCode == 200) {
+		if (statusCode == HTTP::MessageHeader::StatusCode::OK) {
 			document.Parse(responseBody.ToCStr().Get());
 			if (Value* localitati = Pointer("/results/0/value/features").Get(document)) {
 				GenericArray<false, Value::ValueType> listaLocalitati = localitati->GetArray();
@@ -115,6 +126,48 @@ namespace GIS {
 		
 		return statusCode;
 	}
+
+	GS::Array<API_Coord> HTTPHandler::RequestNumarCadastral(const GS::UInt64 & JUDET_ID, const GS::UInt64 & ADMINISTRATIVE_ID, const int & NUMAR_CADASTRAL)
+	{
+		using namespace rapidjson;
+		Document document;
+		GS::Array<API_Coord> API_CoordList = {};
+		GS::UniString URL = "https://geoportal.ancpi.ro/maps/rest/services/eterra3_publish/MapServer/1/query?f=json&where=INSPIRE_ID%20%3D%20%27RO." +
+			GS::ValueToUniString(JUDET_ID) + "." + GS::ValueToUniString(ADMINISTRATIVE_ID) +"."+ GS::ValueToUniString(NUMAR_CADASTRAL) +
+			"%27&returnGeometry=true&spatialRel=esriSpatialRelIntersects&outFields=NATIONAL_CADASTRAL_REFERENCE";
+		GS::UniString response;
+		int statusCode = GIS::HTTPHandler::eTerraRequest(HTTP
+			::MessageHeader::Method::Get,
+			URL,
+			"",
+			response
+		);
+		if (statusCode == HTTP::MessageHeader::StatusCode::OK) {
+			document.Parse(response.ToCStr().Get());
+			
+			if (Value* coordinatesList = Pointer("/features/0/geometry/rings/0").Get(document)) {
+				if (coordinatesList->IsArray()) {
+					GenericArray<false, Value::ValueType> arrayOfCoordinates = coordinatesList->GetArray();
+					for (SizeType i = 0; i < arrayOfCoordinates.Size(); i++) {
+						API_CoordList.Push(
+							API_Coord{ arrayOfCoordinates[i].GetArray()[0].GetDouble(),
+									   arrayOfCoordinates[i].GetArray()[1].GetDouble()});
+					}
+					return API_CoordList;
+				}
+			}
+			else
+			{
+				DG::InformationAlert(GIS::ERR::NO_CADASTER, "", "OK");
+			};
+		}
+		else {
+			DBPrintf("StatusCode: %u\n", statusCode);
+		}
+		return API_CoordList;
+	}
+
+	
 
 	void HTTPHandler::ReadJSONResponse()
 	{

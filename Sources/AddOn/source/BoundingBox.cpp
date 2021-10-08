@@ -4,7 +4,6 @@ namespace GIS {
 
 		BoundingBox::BoundingBox()
 		{
-			this->SetCenter();
 		}
 
 		BoundingBox::BoundingBox(
@@ -56,12 +55,14 @@ namespace GIS {
 					this->box.yMax = currentCoordinate.y;
 				}
 			}
+			this->SetCenter();
 
 		}
 
 		BoundingBox::~BoundingBox()
 		{
 		}
+
 		GS::Array<API_Coord> BoundingBox::GetNormalizedCoordinates()
 		{
 			GS::Array<API_Coord> normalCoordinates = {};
@@ -77,8 +78,7 @@ namespace GIS {
 			return normalCoordinates;
 		}
 
-		//TODO Get normalized coordinates refering to a point,
-		//Using this I can scale the drawing accoringly with the canvas
+		//TODO NEEDS DOUBLE CHECK NORMALIZATION
 		GS::Array<API_Coord> BoundingBox::GetNormalizedCoordinates(const API_Coord& relativeToThisPoint)
 		{
 			GS::Array<API_Coord> normalCoordinates = {};
@@ -94,6 +94,11 @@ namespace GIS {
 			return normalCoordinates;
 		}
 
+		BoundingBox BoundingBox::GetNormalizedBoundingBox()
+		{
+			return BoundingBox(this->GetNormalizedCoordinates());
+		}
+
 		void BoundingBox::SetCenter()
 		{
 			this->center = {
@@ -102,9 +107,9 @@ namespace GIS {
 			};
 		}
 
-		void BoundingBox::SetCenter(const API_Coord& _center)
+		void BoundingBox::SetCenter(const API_Coord& center)
 		{
-			this->center = _center;
+			this->center = center;
 		}
 	}
 }
