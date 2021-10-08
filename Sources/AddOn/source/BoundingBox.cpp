@@ -1,4 +1,8 @@
-#include "BoundingBox.h"
+#include	"APIEnvir.h"
+#include	"ACAPinc.h"
+#include	"StringConversion.hpp"
+#include	"BoundingBox.h"
+
 namespace GIS {
 	namespace BBOX {
 
@@ -31,7 +35,7 @@ namespace GIS {
 		}
 
 		BoundingBox::BoundingBox(
-			const GS::Array<API_Coord>& coordinates)
+			const GS::Array<API_Coord>& coordinates, const bool& absoluteOrigin)
 		{
 
 			this->coordinates = coordinates;
@@ -55,8 +59,10 @@ namespace GIS {
 					this->box.yMax = currentCoordinate.y;
 				}
 			}
+			if (absoluteOrigin==true) {
+				this->TranslateCoordinatesToAbsoluteOrigin();
+			}
 			this->SetCenter();
-
 		}
 
 		BoundingBox::~BoundingBox()
@@ -110,6 +116,16 @@ namespace GIS {
 		void BoundingBox::SetCenter(const API_Coord& center)
 		{
 			this->center = center;
+		}
+		void BoundingBox::TranslateCoordinatesToAbsoluteOrigin()
+		{
+			ACAPI_WriteReport("---Original Coordinates---", false);
+			for (API_Coord c : this->coordinates)
+			{
+				ACAPI_WriteReport(GS::ValueToUniString(c.x)+ ", "+ GS::ValueToUniString(c.y), false);
+				c.x = c.x - this->box.xMin;
+				c.y = c.y - this->box.yMin;
+			}
 		}
 	}
 }

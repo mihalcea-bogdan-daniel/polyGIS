@@ -14,7 +14,6 @@ namespace GIS {
 	public:
 		Preferences();
 		~Preferences();
-		//TODO Do I really need a virtual function for Setting the preferences in this class?
 	protected:
 		Int32				version;
 		GSSize				nBytes;

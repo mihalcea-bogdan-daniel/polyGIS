@@ -28,7 +28,10 @@ namespace GIS {
 			/**
 			Initialize a bounding box with an array of API_Coord;
 			*/
-			BoundingBox(const GS::Array<API_Coord>& coordinates);
+			BoundingBox(
+				const GS::Array<API_Coord>& coordinates,
+				const bool& absoluteOrigin = false
+			);
 
 			//============================Destructors==============================
 			virtual ~BoundingBox();
@@ -54,7 +57,7 @@ namespace GIS {
 			Set center to a given API_Coord point
 			*/
 			virtual void SetCenter(const API_Coord& center);
-
+			void TranslateCoordinatesToAbsoluteOrigin();
 		protected:
 			API_Box box {0.0, 0.0, 1.0, 1.0};
 			GS::Array<API_Coord> coordinates = {};

@@ -5,7 +5,7 @@
 namespace GIS {
 	
 	//Set Default settings
-	void MainFunctions::Do_SetDefaultSettings()
+	void INIT::MainFunctions::Do_SetDefaultSettings()
 	{
 		AddOnPreferences prefs;
 		Int32 version;
@@ -35,3 +35,5 @@ namespace GIS {
 
 	}
 }// DoSetDefaultSettings()
+
+

@@ -8,7 +8,7 @@
 #include "include/dialog_items/GIS_CheckBox.h"
 
 namespace GIS {
-
+	
 	class MainDialog : public DG::ModalDialog,
 		public DG::PanelObserver,
 		public DG::ButtonItemObserver,
@@ -50,5 +50,6 @@ namespace GIS {
 		DG::LeftText contactText;
 		DG::LeftText aboutText;
 		GIS::GIS_CheckBox isAbsOriginCheckBox;
+		
 	};
 }

@@ -10,7 +10,7 @@ GIS::JudetePopUp::JudetePopUp(const DG::Panel & _panel, short item) :
 {
 	Attach(*this);
 	this->Fill(GIS::JUDETE_UAT);
-	this->SelectItem(2);
+	this->SelectItem(this->prefs.lastSelectedJudet);
 	
 }
 
@@ -19,24 +19,30 @@ GIS::JudetePopUp::~JudetePopUp()
 	Detach(*this);
 }
 
-
-
 void GIS::JudetePopUp::PopUpChanged(const DG::PopUpChangeEvent& ev)
 {
 	GS::Array<GIS::Localitate> listaLocalitati = {  };
 	short selectedItem = this->GetSelectedItem();
+	//Cast the source to a JudetePopUp class
 	JudetePopUp* source = dynamic_cast<JudetePopUp*>(ev.GetSource());
+	//Get the parent panel, needs casting
 	GIS::MainDialog* parentPanel = dynamic_cast<MainDialog*>(source->GetPanel());
 	
+	//Update preferences after PopUp Selected
+	this->prefs.lastSelectedJudet = selectedItem;
+	
+
 	DGUserData userData = DGPopUpGetItemUserData(DG_TOP_MODAL, source->GetId(), selectedItem);
 	int err = GIS::HTTPHandler::RequestLocalitati(userData, listaLocalitati);
     if (err == 200) {
 		DG::PopUp* toFillpopup = dynamic_cast<DG::PopUp*>(parentPanel->GetItem(MainDialog::LocalitatiListBoxId));
-		this->Fill(*toFillpopup,listaLocalitati);
+		this->Fill(*toFillpopup, listaLocalitati);
 		for (GIS::Localitate elem : listaLocalitati) {
 			DBPrintf("%s\n", elem.UAT);
 		}
+		this->prefs.listaLocalitati = listaLocalitati;
 	}
+	ACAPI_SetPreferences(this->version, this->nBytes, &this->prefs);
 }
 
 

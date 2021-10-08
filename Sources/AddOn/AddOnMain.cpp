@@ -1,6 +1,6 @@
 #include "APIEnvir.h"
 #include "ACAPinc.h"
-
+#include "DGDialog.hpp"
 #include "ResourceIds.hpp"
 #include "DGModule.hpp"
 #include "StringConversion.hpp"
@@ -8,7 +8,7 @@
 #include "MainDialog.h"
 #include "BoundingBox.h"
 
-static const GIS::BBOX::BoundingBox bb;
+static GIS::BBOX::BoundingBox bb;
 
 static const GSResID AddOnInfoID = ID_ADDON_INFO;
 static const Int32 AddOnNameID = 1;
@@ -32,7 +32,8 @@ static GSErrCode MenuCommandHandler(const API_MenuParams *menuParams)
 				"=================================================================\n"
 			);
 			//FAST Make the request from the forms, not this way.
-			GIS::HTTPHandler::RequestNumarCadastral(38, 13935, 0);
+			GS::Array<API_Coord> coordList = GIS::HTTPHandler::RequestNumarCadastral(38, 13935, 1);
+			bb = GIS::BBOX::BoundingBox(coordList, true);
 			GIS::MainDialog dialog;
 			dialog.Invoke();
 		}
