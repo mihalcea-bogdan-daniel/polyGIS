@@ -11,6 +11,8 @@
 #include	"GXImage.hpp"
 #include	"DGUtility.hpp"
 #include	"HTTPHandler.h"
+#include	"BoundingBox.h"
+
 namespace GIS {
 	MainDialog::MainDialog() :
 		DG::ModalDialog(ACAPI_GetOwnResModule(), MainDialogResourceId, ACAPI_GetOwnResModule()),
@@ -63,6 +65,15 @@ namespace GIS {
 		}
 		else if (ev.GetSource() == &cancelButton) {
 			PostCloseRequest(DG::ModalDialog::Cancel);
+		}
+		else if (ev.GetSource() == &searchButton) {
+			DGUserData admin_uat = DGPopUpGetItemUserData(this->GetId(), this->LocalitatiListBoxId, localitatiPopUp.GetSelectedItem());
+			DGUserData judete_id = DGPopUpGetItemUserData(this->GetId(), this->JudeteListBoxId, judetePopUp.GetSelectedItem());
+			GS::Array<API_Coord> coordinates = GIS::HTTPHandler::RequestNumarCadastral(
+				judete_id, admin_uat, numarCadastralIntInput.GetValue()
+			);
+			GIS::BBOX::BoundingBox bb = GIS::BBOX::BoundingBox(coordinates, true);
+			
 		}
 	}
 

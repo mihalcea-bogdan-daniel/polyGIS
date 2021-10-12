@@ -154,7 +154,7 @@ namespace GIS {
 			);
 			if (statusCode == HTTP::MessageHeader::StatusCode::OK) {
 				document.Parse(response.ToCStr().Get());
-
+				
 				if (Value* coordinatesList = Pointer("/features/0/geometry/rings/0").Get(document)) {
 					if (coordinatesList->IsArray()) {
 						GenericArray<false, Value::ValueType> arrayOfCoordinates = coordinatesList->GetArray();
@@ -168,7 +168,7 @@ namespace GIS {
 				}
 				else
 				{
-					throw GS::Exception(GIS::ERR::NO_CADASTER, "HTTPHandler.h", 170, nullptr, 1001);;
+					throw GS::Exception(GIS::ERR::NO_CADASTER, "HTTPHandler.h", 170, nullptr, 1001);
 				};
 			}
 			else {

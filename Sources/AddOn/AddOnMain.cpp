@@ -33,7 +33,7 @@ static GSErrCode MenuCommandHandler(const API_MenuParams *menuParams)
 			);
 			//FAST Make the request from the forms, not this way.
 			GS::Array<API_Coord> coordList = GIS::HTTPHandler::RequestNumarCadastral(38, 13935, 1);
-			bb = GIS::BBOX::BoundingBox(coordList, true);
+			
 			GIS::MainDialog dialog;
 			dialog.Invoke();
 		}

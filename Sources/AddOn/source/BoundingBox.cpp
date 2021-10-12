@@ -37,28 +37,30 @@ namespace GIS {
 		BoundingBox::BoundingBox(
 			const GS::Array<API_Coord>& coordinates, const bool& absoluteOrigin)
 		{
+			if (coordinates.GetSize() > 0) {
 
-			this->coordinates = coordinates;
-			this->box.xMin = coordinates[0].x;
-			this->box.xMax = coordinates[0].x;
-			this->box.yMin = coordinates[0].y;
-			this->box.yMax = coordinates[0].y;
+				this->coordinates = coordinates;
+				this->box.xMin = coordinates[0].x;
+				this->box.xMax = coordinates[0].x;
+				this->box.yMin = coordinates[0].y;
+				this->box.yMax = coordinates[0].y;
 
-
-			for (API_Coord currentCoordinate : coordinates) {
-				if (currentCoordinate.x < this->box.xMin) {
-					this->box.xMin = currentCoordinate.x;
-				}
-				if (currentCoordinate.y < this->box.yMin) {
-					this->box.yMin = currentCoordinate.y;
-				}
-				if (currentCoordinate.x > this->box.xMax) {
-					this->box.xMax = currentCoordinate.x;
-				}
-				if (currentCoordinate.y > this->box.yMax) {
-					this->box.yMax = currentCoordinate.y;
+				for (API_Coord currentCoordinate : coordinates) {
+					if (currentCoordinate.x < this->box.xMin) {
+						this->box.xMin = currentCoordinate.x;
+					}
+					if (currentCoordinate.y < this->box.yMin) {
+						this->box.yMin = currentCoordinate.y;
+					}
+					if (currentCoordinate.x > this->box.xMax) {
+						this->box.xMax = currentCoordinate.x;
+					}
+					if (currentCoordinate.y > this->box.yMax) {
+						this->box.yMax = currentCoordinate.y;
+					}
 				}
 			}
+
 			if (absoluteOrigin==true) {
 				this->TranslateCoordinatesToAbsoluteOrigin();
 			}
@@ -84,7 +86,7 @@ namespace GIS {
 			return normalCoordinates;
 		}
 
-		//TODO NEEDS DOUBLE CHECK NORMALIZATION
+		//TODO ====== NEEDS DOUBLE CHECK NORMALIZATION
 		GS::Array<API_Coord> BoundingBox::GetNormalizedCoordinates(const API_Coord& relativeToThisPoint)
 		{
 			GS::Array<API_Coord> normalCoordinates = {};
