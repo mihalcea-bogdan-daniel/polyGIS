@@ -67,13 +67,27 @@ namespace GIS {
 	/*
 	The main structure of the Add Ons preferences
 	*/
+
+	struct Item{
+		GS::UInt8 parentId;
+		GS::UInt8 itemId;
+		const GS::UInt8 hash = this->parentId + this->itemId;
+		
+		GS::ULong Item::GenerateHashValue() {
+			return GS::GenerateHashValue(this->hash);
+		}
+		bool operator== (const Item& other) const {
+			return (this->parentId == other.parentId && this->itemId == other.itemId);
+		}
+	};
+
 	typedef struct {
 		Int32 version;
 		bool  absCoordinates;
 		short lastSelectedJudet;
 		short lastSelectedLocalitateItem;
 		GS::Array<GIS::Localitate> listaLocalitati;
-		//TODO - Create a localitate popup, similar to judete
+		GS::HashTable <Item, GS::UShort> lastSelectedItems;
 	} AddOnPreferences;
 	namespace INIT {
 		class MainFunctions {
