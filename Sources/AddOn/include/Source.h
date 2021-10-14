@@ -67,12 +67,32 @@ namespace GIS {
 	/*
 	The main structure of the Add Ons preferences
 	*/
+	/*class Item {
+	public:
+		GS::UInt8 parentId;
+		GS::UInt8 itemId;
+
+		Item::Item(const GS::UInt8 &parentId, const GS::UInt8 &itemId) {
+			this->parentId = parentId;
+			this->itemId = itemId;
+		}
+
+		Item::~Item(){}
+		GS::ULong Item::GenerateHashValue() {
+			return GS::GenerateHashValue(this->itemId + this->parentId);
+		}
+
+		bool operator== (const Item& other) const {
+			return (this->parentId == other.parentId && this->itemId == other.itemId);
+		}
+	};*/
+
 
 	struct Item{
 		GS::UInt8 parentId;
 		GS::UInt8 itemId;
 		const GS::UInt8 hash = this->parentId + this->itemId;
-		
+
 		GS::ULong Item::GenerateHashValue() {
 			return GS::GenerateHashValue(this->hash);
 		}
