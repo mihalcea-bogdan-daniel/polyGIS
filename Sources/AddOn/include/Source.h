@@ -67,48 +67,39 @@ namespace GIS {
 	/*
 	The main structure of the Add Ons preferences
 	*/
-	/*class Item {
-	public:
-		GS::UInt8 parentId;
-		GS::UInt8 itemId;
+	//struct Item {
+	//	short parentId;
+	//	short itemId;
+	//	
+	//	Item() {
+	//		const bool hasGenHash = GS::HasGenerateHashValue<Item>;
+	//	};
+	//	Item(const short& parentId, const short& itemId) {
+	//		this->parentId = parentId;
+	//		this->itemId = itemId;
+	//	}
+	//	GS::ULong GenerateHashValue(GS::UInt8 number);
 
-		Item::Item(const GS::UInt8 &parentId, const GS::UInt8 &itemId) {
-			this->parentId = parentId;
-			this->itemId = itemId;
-		}
+	//	bool operator== (const Item& other) const {
+	//		return (this->parentId == other.parentId && this->itemId == other.itemId);
+	//	}
+	//};
 
-		Item::~Item(){}
-		GS::ULong Item::GenerateHashValue() {
-			return GS::GenerateHashValue(this->itemId + this->parentId);
-		}
+	//GS::ULong Item::GenerateHashValue(GS::UInt8 number) {
+	//	return number;
+	//};
 
-		bool operator== (const Item& other) const {
-			return (this->parentId == other.parentId && this->itemId == other.itemId);
-		}
-	};*/
-
-
-	struct Item{
-		GS::UInt8 parentId;
-		GS::UInt8 itemId;
-		const GS::UInt8 hash = this->parentId + this->itemId;
-
-		GS::ULong Item::GenerateHashValue() {
-			return GS::GenerateHashValue(this->hash);
-		}
-		bool operator== (const Item& other) const {
-			return (this->parentId == other.parentId && this->itemId == other.itemId);
-		}
-	};
-
+	typedef GS::Pair<short, short> Item;
+	
 	typedef struct {
 		Int32 version;
 		bool  absCoordinates;
 		short lastSelectedJudet;
 		short lastSelectedLocalitateItem;
 		GS::Array<GIS::Localitate> listaLocalitati;
-		GS::HashTable <Item, GS::UShort> lastSelectedItems;
+		GS::HashTable <Item, short> lastSelectedItems;
 	} AddOnPreferences;
+
 	namespace INIT {
 		class MainFunctions {
 		public:

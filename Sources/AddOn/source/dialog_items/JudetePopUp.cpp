@@ -10,7 +10,7 @@ GIS::JudetePopUp::JudetePopUp(const DG::Panel & _panel, short item) :
 {
 	Attach(*this);
 	this->Fill(GIS::JUDETE_UAT);
-	this->customItemID = { this->GetPanel()->GetId(), this->GetId() };
+	this->customItemID = GIS::Item(this->GetPanel()->GetId(), this->GetId());
 	if (this->prefs.lastSelectedItems[this->customItemID]) {
 		this->SelectItem(this->prefs.lastSelectedItems[this->customItemID]);
 	}
