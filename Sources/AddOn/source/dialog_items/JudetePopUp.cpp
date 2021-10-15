@@ -11,8 +11,8 @@ GIS::JudetePopUp::JudetePopUp(const DG::Panel & _panel, short item) :
 	Attach(*this);
 	this->Fill(GIS::JUDETE_UAT);
 	this->customItemID = GIS::Item(this->GetPanel()->GetId(), this->GetId());
-	if (this->prefs.lastSelectedItems[this->customItemID]) {
-		this->SelectItem(this->prefs.lastSelectedItems[this->customItemID]);
+	if (this->prefs.lastSelectedItems.ContainsKey(this->customItemID)) {
+		this->SelectItem(this->prefs.lastSelectedItems.Retrieve(this->customItemID));
 	}
 	else {
 		this->SelectItem(1);
@@ -27,7 +27,10 @@ GIS::JudetePopUp::~JudetePopUp()
 
 void GIS::JudetePopUp::SetPreferences()
 {
+	DBPrintf("Size of prefs before adding: %u\n", sizeof(this->prefs));
 	this->prefs.lastSelectedItems.Add(this->customItemID, this->GetSelectedItem());
+	DBPrintf("Size of prefs after adding: %u\n", sizeof(this->prefs));
+	this->nBytes = sizeof(this->prefs);
 	ACAPI_SetPreferences(this->version, this->nBytes, &this->prefs);
 }
 
@@ -47,7 +50,7 @@ void GIS::JudetePopUp::PopUpChanged(const DG::PopUpChangeEvent& ev)
 		for (GIS::Localitate elem : listaLocalitati) {
 			DBPrintf("%s\n", elem.UAT);
 		}
-		this->prefs.listaLocalitati = listaLocalitati;
+		//this->prefs.listaLocalitati = listaLocalitati;
 	}
 	this->SetPreferences();
 }

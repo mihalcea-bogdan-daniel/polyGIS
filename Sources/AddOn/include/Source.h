@@ -67,36 +67,40 @@ namespace GIS {
 	/*
 	The main structure of the Add Ons preferences
 	*/
-	//struct Item {
-	//	short parentId;
-	//	short itemId;
-	//	
-	//	Item() {
-	//		const bool hasGenHash = GS::HasGenerateHashValue<Item>;
-	//	};
-	//	Item(const short& parentId, const short& itemId) {
-	//		this->parentId = parentId;
-	//		this->itemId = itemId;
-	//	}
-	//	GS::ULong GenerateHashValue(GS::UInt8 number);
+	struct Item {
+		short parentId;
+		short itemId;
+		
+		Item() {
+			const bool hasGenHash = GS::HasGenerateHashValue<Item>;
+		};
+		Item(const short& parentId, const short& itemId) {
+			this->parentId = parentId;
+			this->itemId = itemId;
+		}
+		GS::ULong GenerateHashValue() const {
+			return (GS::ULong)(this->itemId + this->parentId);
+		};
 
-	//	bool operator== (const Item& other) const {
-	//		return (this->parentId == other.parentId && this->itemId == other.itemId);
-	//	}
-	//};
+		bool operator== (const Item& other) const {
+			return (this->parentId == other.parentId && this->itemId == other.itemId);
+		}
+	};
 
-	//GS::ULong Item::GenerateHashValue(GS::UInt8 number) {
-	//	return number;
-	//};
+	
+	//GS::ULong Item::GenerateHashValue() const
+	//{
+	//	return (GS::ULong)(this->itemId + this->parentId);
+	//}
 
-	typedef GS::Pair<short, short> Item;
+	//typedef GS::Pair<short, short> Item;
 	
 	typedef struct {
 		Int32 version;
 		bool  absCoordinates;
 		short lastSelectedJudet;
-		short lastSelectedLocalitateItem;
-		GS::Array<GIS::Localitate> listaLocalitati;
+		//short lastSelectedLocalitateItem;
+		//GS::Array<GIS::Localitate> listaLocalitati;
 		GS::HashTable <Item, short> lastSelectedItems;
 	} AddOnPreferences;
 

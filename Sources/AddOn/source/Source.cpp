@@ -1,6 +1,6 @@
 #include "Source.h"
 #include "ResourceIds.hpp"
-
+#include "MainDialog.h"
 
 namespace GIS {
 	
@@ -14,7 +14,7 @@ namespace GIS {
 		unsigned short platformSign = GS::Act_Platform_Sign;
 		ACAPI_GetPreferences_Platform(&version, &nBytes, nullptr, nullptr);
 		if (version == CURR_ADDON_VERSION) {
-			ACAPI_GetPreferences_Platform(&version, &nBytes, (GSPtr)&prefs, &platformSign);
+			ACAPI_GetPreferences_Platform(&version, &nBytes, &prefs, &platformSign);
 			if (platformSign != GS::Act_Platform_Sign) {
 				GS::PlatformSign	inplatform = (GS::PlatformSign) platformSign;
 				IVLong(inplatform, &prefs.version);
@@ -29,11 +29,13 @@ namespace GIS {
 			prefs.version = CURR_ADDON_VERSION;
 			prefs.absCoordinates = false;
 			prefs.lastSelectedJudet = 1;
+			prefs.lastSelectedItems.Add(GIS::Item(GIS::MainDialog::MainDialogResourceIds::MainDialogResourceId, GIS::MainDialog::MainDialogResourceIds::JudeteListBoxId), 1);
+			ACAPI_SetPreferences(CURR_ADDON_VERSION, sizeof(prefs), &prefs);
 		}
 
-		ACAPI_SetPreferences(CURR_ADDON_VERSION, sizeof(AddOnPreferences), (GSPtr)&prefs);
 
 	}
+	
 }// DoSetDefaultSettings()
 
 
